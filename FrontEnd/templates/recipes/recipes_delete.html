@@ -1,0 +1,11 @@
+{% extends 'auth/dashboard.html' %}
+
+{% block content %}
+    <h1>Eliminar Medicamento</h1>
+    <p>¿Estás seguro de que quieres eliminar "{{ object.descripcion }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+    </form>
+    <a href="{% url 'Recipes:recipes_list' %}">Cancelar</a>
+{% endblock %}

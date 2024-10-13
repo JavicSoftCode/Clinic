@@ -1,0 +1,16 @@
+{% extends 'auth/dashboard.html' %}
+{% block content %}
+    <div class="container mt-5">
+        <div class="form-container">
+            <h1 class="text-center mb-4">{{ title1 }}</h1>
+            <form method="POST" class="m-4">
+                {% csrf_token %}
+                {{ form }}
+                <div class="d-flex justify-content-end mt-4">
+                    <button class="btn btn-outline-success me-2" type="submit">Grabar Doctor</button>
+                    <a class="btn btn-outline-warning" href="{% url 'Doctors:doctors_list' %}">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

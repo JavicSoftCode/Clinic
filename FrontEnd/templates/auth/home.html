@@ -1,0 +1,407 @@
+{% extends 'auth/dashboard.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- Sección de Servicios -->
+    <div id="services" class="container-servicios mt-5">
+    <div class="row">
+        <!-- Card: Cirugías -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 service-card">
+                <img src="{% static 'public/clinic/cirugia.jpg' %}" class="card-img-top img-servicio" alt="Cirugías">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Cirugías</h4>
+                    <p class="card-text">Realizamos cirugías avanzadas con los mejores profesionales médicos.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Tratamientos Médicos -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 service-card">
+                <img src="{% static 'public/clinic/tratamiento.jpg' %}" class="card-img-top img-servicio" alt="Tratamientos">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Tratamientos Médicos</h4>
+                    <p class="card-text">Ofrecemos una amplia gama de tratamientos médicos especializados.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Urgencias -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 service-card">
+                <img src="{% static 'public/clinic/emergerncia.jpg' %}" class="card-img-top img-servicio" alt="Urgencias">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Urgencias</h4>
+                    <p class="card-text">Atendemos emergencias médicas las 24 horas del día.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Pediatría -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 service-card">
+                <img src="{% static 'public/clinic/pediatra.jpg' %}" class="card-img-top img-servicio" alt="Pediatría">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Pediatría</h4>
+                    <p class="card-text">Brindamos atención médica especializada para niños y adolescentes.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Radiología -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 service-card">
+                <img src="{% static 'public/clinic/radiologia.jpg' %}" class="card-img-top img-servicio" alt="Radiología">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Radiología</h4>
+                    <p class="card-text">Contamos con tecnología avanzada de imagen para diagnósticos precisos.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Laboratorio Clínico -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 service-card">
+                <img src="{% static 'public/clinic/Laboratorio_Clinico.jpg' %}" class="card-img-top img-servicio" alt="Laboratorio Clínico">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Laboratorio Clínico</h4>
+                    <p class="card-text">Realizamos análisis de sangre, pruebas de laboratorio y diagnósticos avanzados.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Cardiología -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 service-card">
+                <img src="{% static 'public/clinic/cardiologia.jpg' %}" class="card-img-top img-servicio" alt="Cardiología">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Cardiología</h4>
+                    <p class="card-text">Proporcionamos atención especializada para el cuidado del corazón.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Ginecología -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 service-card">
+                <img src="{% static 'public/clinic/ginecologia.jpg' %}" class="card-img-top img-servicio" alt="Ginecología">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Ginecología</h4>
+                    <p class="card-text">Ofrecemos servicios especializados en salud femenina y cuidado prenatal.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Fisioterapia -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 service-card">
+                <img src="{% static 'public/clinic/fisio.jpg' %}" class="card-img-top img-servicio" alt="Fisioterapia">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Fisioterapia</h4>
+                    <p class="card-text">Rehabilitación física para mejorar la movilidad y aliviar el dolor.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+{#{% extends 'auth/dashboard.html' %}#}
+{##}
+{#{% block content %}#}
+{#    <div class="card-header">#}
+{#        <h3 class="font-weight-light my-1 font-weight-bold h3">Servicios Médicos de la Clínica#}
+{#            <i class="fas fa-hospital" style="font-size: 35px; cursor: pointer"></i>#}
+{#        </h3>#}
+{#    </div>#}
+{#    <div class="card-body">#}
+{#        <div class="row">#}
+{#            <!-- Card: Cirugías -->#}
+{#            <div class="col-lg-4 col-md-6 mb-4">#}
+{#                <div class="card h-100">#}
+{#                    <div class="card-header text-center bg-primary text-white">#}
+{#                        <h4>Cirugías</h4>#}
+{#                    </div>#}
+{#                    <div class="card-body text-center">#}
+{#                        <p>Realizamos cirugías generales, ortopédicas, cardiovasculares y más, con tecnología avanzada y personal especializado.</p>#}
+{#                        <i class="fas fa-procedures fa-3x"></i>#}
+{#                    </div>#}
+{#                    <div class="card-footer text-center">#}
+{#                        <a href="#" class="btn btn-primary">Más información</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <!-- Card: Tratamientos Médicos -->#}
+{#            <div class="col-lg-4 col-md-6 mb-4">#}
+{#                <div class="card h-100">#}
+{#                    <div class="card-header text-center bg-success text-white">#}
+{#                        <h4>Tratamientos Médicos</h4>#}
+{#                    </div>#}
+{#                    <div class="card-body text-center">#}
+{#                        <p>Ofrecemos una amplia gama de tratamientos médicos, desde terapias de rehabilitación hasta tratamientos especializados para enfermedades crónicas.</p>#}
+{#                        <i class="fas fa-stethoscope fa-3x"></i>#}
+{#                    </div>#}
+{#                    <div class="card-footer text-center">#}
+{#                        <a href="#" class="btn btn-success">Más información</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <!-- Card: Consultas Médicas -->#}
+{#            <div class="col-lg-4 col-md-6 mb-4">#}
+{#                <div class="card h-100">#}
+{#                    <div class="card-header text-center bg-warning text-white">#}
+{#                        <h4>Consultas Médicas</h4>#}
+{#                    </div>#}
+{#                    <div class="card-body text-center">#}
+{#                        <p>Programamos consultas médicas personalizadas con nuestros especialistas en diferentes áreas de la salud.</p>#}
+{#                        <i class="fas fa-user-md fa-3x"></i>#}
+{#                    </div>#}
+{#                    <div class="card-footer text-center">#}
+{#                        <a href="#" class="btn btn-warning">Más información</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <!-- Card: Diagnóstico por Imagen -->#}
+{#            <div class="col-lg-4 col-md-6 mb-4">#}
+{#                <div class="card h-100">#}
+{#                    <div class="card-header text-center bg-info text-white">#}
+{#                        <h4>Diagnóstico por Imagen</h4>#}
+{#                    </div>#}
+{#                    <div class="card-body text-center">#}
+{#                        <p>Contamos con equipos avanzados de imagenología para realizar resonancias magnéticas, ecografías, radiografías y más.</p>#}
+{#                        <i class="fas fa-x-ray fa-3x"></i>#}
+{#                    </div>#}
+{#                    <div class="card-footer text-center">#}
+{#                        <a href="#" class="btn btn-info">Más información</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <!-- Card: Urgencias -->#}
+{#            <div class="col-lg-4 col-md-6 mb-4">#}
+{#                <div class="card h-100">#}
+{#                    <div class="card-header text-center bg-danger text-white">#}
+{#                        <h4>Urgencias</h4>#}
+{#                    </div>#}
+{#                    <div class="card-body text-center">#}
+{#                        <p>Ofrecemos atención inmediata para emergencias médicas las 24 horas del día, con equipos de respuesta rápida y cuidados intensivos.</p>#}
+{#                        <i class="fas fa-ambulance fa-3x"></i>#}
+{#                    </div>#}
+{#                    <div class="card-footer text-center">#}
+{#                        <a href="#" class="btn btn-danger">Más información</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <!-- Card: Medicina Preventiva -->#}
+{#            <div class="col-lg-4 col-md-6 mb-4">#}
+{#                <div class="card h-100">#}
+{#                    <div class="card-header text-center bg-secondary text-white">#}
+{#                        <h4>Medicina Preventiva</h4>#}
+{#                    </div>#}
+{#                    <div class="card-body text-center">#}
+{#                        <p>Promovemos el cuidado preventivo con chequeos regulares, vacunaciones y programas de bienestar integral.</p>#}
+{#                        <i class="fas fa-heartbeat fa-3x"></i>#}
+{#                    </div>#}
+{#                    <div class="card-footer text-center">#}
+{#                        <a href="#" class="btn btn-secondary">Más información</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}
+
+
+{#{% extends 'auth/dashboard.html' %}#}
+{##}
+{#{% block content %}#}
+{#    <div class="card-header">#}
+{#        <h3 class="font-weight-light my-1 font-weight-bold h3">{{ title3 }}#}
+{#            <i id="cloud" class="fas fa-school" style="font-size: 35px; cursor: pointer"></i>#}
+{#        </h3>#}
+{#    </div>#}
+{#    <div class="card-body">#}
+{#        <div id="bootstrap-data-table_wrapper"#}
+{#             class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">#}
+{#            <div class="row">#}
+{#                <div class="col-sm-12 fonth3">#}
+{#                    <h4 class="font-weight-bold h4 styleH4">Universidad de Programación JSC</h4>#}
+{#                    <!-- Contenedor de la Foto -->#}
+{#                    <div class="text-center col-sm-4 offset-sm-8 classContenedorFoto"#}
+{#                         id="ContenedorFoto">#}
+{#                                                    <span class="classSpanFoto">Javic Soft Code <i#}
+{#                                                            class="fa fa-code"></i></span>#}
+{#                        <div class="container">#}
+{#                            <canvas id="CanvasIMG" class="classCanvas"></canvas>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <br>#}
+{#                    <h3 class="font-weight-bold">Introducción</h3>#}
+{#                    <p>La Universidad de Programación (JSC) es una institución dedicada a#}
+{#                        proporcionar una educación de calidad en el campo de la programación y la#}
+{#                        tecnología. Nuestro objetivo es preparar a los estudiantes para que se#}
+{#                        conviertan en profesionales altamente capacitados y competentes en el mercado#}
+{#                        laboral actual.</p><br>#}
+{##}
+{#                    <h3 class="font-weight-bold">Periodo</h3>#}
+{#                    <p>El modelo "Periodo" representa los diferentes períodos académicos en los que se#}
+{#                        divide el año escolar. Cada periodo tiene un nombre y está asociado a un#}
+{#                        usuario.</p><br>#}
+{##}
+{#                    <h3 class="font-weight-bold">Asignatura</h3>#}
+{#                    <p>El modelo "Asignatura" contiene información sobre las materias o asignaturas que#}
+{#                        se imparten en la universidad. Cada asignatura tiene una descripción y está#}
+{#                        asociada a un usuario.</p><br>#}
+{##}
+{#                    <h3 class="font-weight-bold">Profesor</h3>#}
+{#                    <p>El modelo "Profesor" representa a los profesionales encargados de impartir las#}
+{#                        clases en la universidad. Cada profesor tiene una identificación única, nombre y#}
+{#                        está asociado a un usuario.</p><br>#}
+{##}
+{#                    <h3 class="font-weight-bold">Estudiante</h3>#}
+{#                    <p>El modelo "Estudiante" contiene información sobre los alumnos matriculados en la#}
+{#                        universidad. Cada estudiante tiene una identificación, nombre y está asociado a#}
+{#                        un usuario.</p><br>#}
+{##}
+{#                    <h3 class="font-weight-bold">Nota</h3>#}
+{#                    <p>El modelo "Nota" registra las calificaciones de los estudiantes en cada#}
+{#                        asignatura. Contiene información como la nota1, nota2, recuperación, etc., y#}
+{#                        está asociado a un periodo, asignatura y profesor.</p><br>#}
+{##}
+{#                    <h3 class="font-weight-bold">DetalleNota</h3>#}
+{#                    <p>El modelo "DetalleNota" almacena los detalles de las notas de los estudiantes,#}
+{#                        incluyendo observaciones adicionales. Está asociado a una nota y un#}
+{#                        estudiante.</p><br>#}
+{##}
+{#                    <h3 class="font-weight-bold">Conclusión</h3>#}
+{#                    <p>La Universidad de Programación Eficiente se compromete a brindar una educación de#}
+{#                        vanguardia en el campo de la tecnología y la programación. Nuestro enfoque#}
+{#                        práctico y orientado a resultados garantiza que nuestros estudiantes estén#}
+{#                        preparados para enfrentar los desafíos del mundo laboral con confianza y#}
+{#                        competencia.</p>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}
+
+
+{#esto sirve para administrar#}
+{#{% extends 'auth/dashboard.html' %}#}
+
+{#{% block content %}#}
+{#    <div class="card-header">#}
+{#        <h3 class="font-weight-light my-1 font-weight-bold h3">Sistema Clínico Integral#}
+{#            <i class="fas fa-hospital" style="font-size: 35px; cursor: pointer"></i>#}
+{#        </h3>#}
+{#    </div>#}
+{#    <div class="card-body">#}
+{#        <div class="row">#}
+{#            <!-- Card: Pacientes -->#}
+{#            <div class="col-lg-4 col-md-6 mb-4">#}
+{#                <div class="card h-100">#}
+{#                    <div class="card-header text-center bg-primary text-white">#}
+{#                        <h4>Pacientes</h4>#}
+{#                    </div>#}
+{#                    <div class="card-body text-center">#}
+{#                        <p>Gestiona la información de los pacientes, incluyendo datos personales, historial médico, y contacto de emergencia.</p>#}
+{#                        <i class="fas fa-user-injured fa-3x"></i>#}
+{#                    </div>#}
+{#                    <div class="card-footer text-center">#}
+{#                        <a href="#" class="btn btn-primary">Ver Pacientes</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <!-- Card: Doctores -->#}
+{#            <div class="col-lg-4 col-md-6 mb-4">#}
+{#                <div class="card h-100">#}
+{#                    <div class="card-header text-center bg-success text-white">#}
+{#                        <h4>Doctores</h4>#}
+{#                    </div>#}
+{#                    <div class="card-body text-center">#}
+{#                        <p>Administra la información del personal médico, especialidades, y horarios de consulta.</p>#}
+{#                        <i class="fas fa-user-md fa-3x"></i>#}
+{#                    </div>#}
+{#                    <div class="card-footer text-center">#}
+{#                        <a href="#" class="btn btn-success">Ver Doctores</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <!-- Card: Citas -->#}
+{#            <div class="col-lg-4 col-md-6 mb-4">#}
+{#                <div class="card h-100">#}
+{#                    <div class="card-header text-center bg-warning text-white">#}
+{#                        <h4>Citas Médicas</h4>#}
+{#                    </div>#}
+{#                    <div class="card-body text-center">#}
+{#                        <p>Programa y gestiona las citas médicas de los pacientes con el personal adecuado.</p>#}
+{#                        <i class="fas fa-calendar-check fa-3x"></i>#}
+{#                    </div>#}
+{#                    <div class="card-footer text-center">#}
+{#                        <a href="#" class="btn btn-warning">Ver Citas</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <!-- Card: Historial Médico -->#}
+{#            <div class="col-lg-4 col-md-6 mb-4">#}
+{#                <div class="card h-100">#}
+{#                    <div class="card-header text-center bg-info text-white">#}
+{#                        <h4>Historial Médico</h4>#}
+{#                    </div>#}
+{#                    <div class="card-body text-center">#}
+{#                        <p>Accede al historial médico completo de los pacientes, incluyendo diagnósticos, tratamientos y recetas.</p>#}
+{#                        <i class="fas fa-file-medical-alt fa-3x"></i>#}
+{#                    </div>#}
+{#                    <div class="card-footer text-center">#}
+{#                        <a href="#" class="btn btn-info">Ver Historial</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <!-- Card: Medicamentos -->#}
+{#            <div class="col-lg-4 col-md-6 mb-4">#}
+{#                <div class="card h-100">#}
+{#                    <div class="card-header text-center bg-danger text-white">#}
+{#                        <h4>Medicamentos</h4>#}
+{#                    </div>#}
+{#                    <div class="card-body text-center">#}
+{#                        <p>Consulta y administra el inventario de medicamentos disponibles en la clínica.</p>#}
+{#                        <i class="fas fa-pills fa-3x"></i>#}
+{#                    </div>#}
+{#                    <div class="card-footer text-center">#}
+{#                        <a href="#" class="btn btn-danger">Ver Medicamentos</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <!-- Card: Facturación -->#}
+{#            <div class="col-lg-4 col-md-6 mb-4">#}
+{#                <div class="card h-100">#}
+{#                    <div class="card-header text-center bg-secondary text-white">#}
+{#                        <h4>Facturación</h4>#}
+{#                    </div>#}
+{#                    <div class="card-body text-center">#}
+{#                        <p>Gestiona los pagos y facturas de los servicios médicos proporcionados a los pacientes.</p>#}
+{#                        <i class="fas fa-file-invoice-dollar fa-3x"></i>#}
+{#                    </div>#}
+{#                    <div class="card-footer text-center">#}
+{#                        <a href="#" class="btn btn-secondary">Ver Facturación</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}

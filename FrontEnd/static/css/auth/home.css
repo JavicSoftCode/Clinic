@@ -1,0 +1,107 @@
+/*!*Home*!*/
+/*!* Estilo para ajustar el texto alrededor del canvas *!*/
+
+/*.fonth3 h3 {*/
+/*    font-size: 22px;*/
+/*}*/
+
+/*.fonth3 p {*/
+/*    font-size: 18px;*/
+/*}*/
+
+/*.classContenedorFoto {*/
+/*    float: right;*/
+/*    margin: 30px 0 18px 30px;*/
+/*    width: 250px;*/
+/*    height: 320px;*/
+/*    text-align: center;*/
+/*    border-radius: 10px;*/
+/*    border-left: 2px solid #e5e5e5;*/
+/*    border-bottom: 2px solid #e5e5e5;5*/
+/*    border-right: 2px solid #e5e5e5;*/
+/*}*/
+
+/*.classContenedorFoto span {*/
+/*    font-size: 25px;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*!* Estilo para centrar el canvas *!*/
+/*.classContenedorFoto .container {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    height: 85%;*/
+/*    max-width: 100%; !* Añade esta línea *!*/
+/*}*/
+
+/*.classContenedorFoto canvas {*/
+/*    max-width: 100%; !* Añade esta línea *!*/
+/*    height: auto; !* Añade esta línea para mantener la proporción *!*/
+/*    border: 1px solid #ddd;*/
+/*}*/
+
+/*.classContenedorFoto .container .classCanvas {*/
+/*    border-radius: 10px;*/
+/*    height: 230px;*/
+/*    width: 200px;*/
+/*}*/
+
+/*.card-body p {*/
+/*    text-align: justify;*/
+/*}*/
+
+/*!* Estilos responsivos *!*/
+/*@media (max-width: 660px) {*/
+
+/*    .styleH4 {*/
+/*        font-size: 22px;*/
+/*    }*/
+
+/*    .fonth3 .styleH4 {*/
+/*        text-align: center;*/
+/*    }*/
+
+/*    .fonth3 h3 {*/
+/*        font-size: 20px;*/
+/*    }*/
+
+/*    .classContenedorFoto {*/
+/*        float: right;*/
+/*        margin: 30px 0 18px 30px;*/
+/*        width: 170px;*/
+/*        height: 250px;*/
+/*        text-align: center;*/
+/*        border-radius: 10px;*/
+/*        border-left: 2px solid #e5e5e5;*/
+/*        border-bottom: 2px solid #e5e5e5;*/
+/*        border-right: 2px solid #e5e5e5;*/
+/*    }*/
+
+/*    .classContenedorFoto span {*/
+/*        font-size: 18px;*/
+/*        font-weight: bold;*/
+/*    }*/
+
+/*    !* Estilo para centrar el canvas *!*/
+/*    .classContenedorFoto .container {*/
+/*        display: flex;*/
+/*        justify-content: center;*/
+/*        align-items: center;*/
+/*        height: 75%;*/
+/*        max-width: 100%; !* Añade esta línea *!*/
+/*    }*/
+
+/*    .classContenedorFoto canvas {*/
+/*        max-width: 100%; !* Añade esta línea *!*/
+/*        height: auto; !* Añade esta línea para mantener la proporción *!*/
+/*        border: 1px solid #ddd;*/
+/*    }*/
+
+/*    .classContenedorFoto .container .classCanvas {*/
+/*        border-radius: 10px;*/
+/*        height: 170px;*/
+/*        max-width: 140px;*/
+/*    }*/
+
+/*}*/

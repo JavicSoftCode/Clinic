@@ -1,0 +1,108 @@
+{% extends 'auth/dashboard.html' %}
+
+{% block content %}
+{#    <div class="card-header">#}
+{#        <h3 class="font-weight-light my-1 font-weight-bold h3">Sistema Clínico Integral#}
+{#            <i class="fas fa-hospital" style="font-size: 35px; cursor: pointer"></i>#}
+{#        </h3>#}
+{#    </div>#}
+    <div class="card-body">
+        <div class="row">
+            <!-- Card: Pacientes -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header text-center bg-primary text-white">
+                        <h4>Pacientes</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <p>Gestiona la información de los pacientes, incluyendo datos personales, historial médico, y contacto de emergencia.</p>
+                        <i class="fas fa-user-injured fa-3x"></i>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="#" class="btn btn-primary">Ver Pacientes</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: Doctores -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header text-center bg-success text-white">
+                        <h4>Doctores</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <p>Administra la información del personal médico, especialidades, y horarios de consulta.</p>
+                        <i class="fas fa-user-md fa-3x"></i>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="{% url 'Doctors:doctors_list' %}" class="btn btn-success">Ver Doctores</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: Citas -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header text-center bg-warning text-white">
+                        <h4>Citas Médicas</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <p>Programa y gestiona las citas médicas de los pacientes con el personal adecuado.</p>
+                        <i class="fas fa-calendar-check fa-3x"></i>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="#" class="btn btn-warning">Ver Citas</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: Historial Médico -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header text-center bg-info text-white">
+                        <h4>Historial Médico</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <p>Accede al historial médico completo de los pacientes, incluyendo diagnósticos, tratamientos y recetas.</p>
+                        <i class="fas fa-file-medical-alt fa-3x"></i>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="#" class="btn btn-info">Ver Historial</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: Medicamentos -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header text-center bg-danger text-white">
+                        <h4>Medicamentos</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <p>Consulta y administra el inventario de medicamentos disponibles en la clínica.</p>
+                        <i class="fas fa-pills fa-3x"></i>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="{% url 'Recipes:recipes_list' %}" class="btn btn-danger">Ver Medicamentos</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: Facturación -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header text-center bg-secondary text-white">
+                        <h4>Facturación</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <p>Gestiona los pagos y facturas de los servicios médicos proporcionados a los pacientes.</p>
+                        <i class="fas fa-file-invoice-dollar fa-3x"></i>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="#" class="btn btn-secondary">Ver Facturación</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

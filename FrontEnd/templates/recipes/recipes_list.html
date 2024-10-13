@@ -1,0 +1,35 @@
+{% extends 'auth/dashboard.html' %}
+
+{% block content %}
+    <h1>Lista de Medicamentos</h1>
+    <a href="{% url 'Recipes:recipes_Create' %}">Nuevo Medicamento</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medicamento in medicamentos %}
+                <tr>
+                    <td>{{ medicamento.codigo }}</td>
+                    <td>{{ medicamento.descripcion }}</td>
+                    <td>{{ medicamento.precio }}</td>
+                    <td>{{ medicamento.estado }}</td>
+                    <td>
+                        <a href="{% url 'Recipes:recipes_Update' medicamento.pk %}">Editar</a>
+                        <a href="{% url 'Recipes:recipes_Delete' medicamento.pk %}">Eliminar</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">No hay medicamentos disponibles.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
