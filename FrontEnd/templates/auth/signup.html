@@ -1,224 +1,244 @@
 {% extends 'auth/dashboard.html' %}
 {% block content %}
+{#    <form method="POST" enctype="multipart/form-data">#}
+{#        {% csrf_token %}#}
+{#        {{ form.as_p }}  <!-- Renderizado del formulario -->#}
+{#        <button type="submit">Registrarse</button>#}
+{#    </form>#}
 
-    <div class="card-body">
-        <div class="container-fluid">
-            <form method="POST" enctype="multipart/form-data" action="{% url 'Auth:signup' %}" class="row">
-                {% csrf_token %}
-                {{ form.non_field_errors }}
+        <div class="card-body">
+            <div class="container-fluid">
+                <form method="POST" enctype="multipart/form-data" action="{% url 'Auth:signup' %}" class="row">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
 
-                <div class="col-md-6">
-                    <div class="text-center containerft" id="ContenedorFoto"
-                         style="position: relative; margin-bottom: 18px; height: 284px">
-                        <span class="classSpanFoto" style="font-size: 23px; font-weight: bold; color: #1089D3">Foto <i
-                                class="fa fa-camera" style="color: #1089D3"></i></span>
-                        <div class="containerftt">
-                            <canvas id="Canvas" class="classCanvas" name="namFoto"></canvas>
-                            <div class="btn-container" id="idBtnContainer" style="margin-top: 10px;">
-                                <div class="form-group">
-                                    <div style="display: none">
-                                        {{ form.image }}
-                                    </div>
-
-                                    <!-- Botón para Subir Foto -->
-                                    <div class="btn-subir-camara"
-                                         style="display: flex; align-items: center; justify-content: space-between; margin-top: -50px">
+                    <div class="col-md-6">
+                        <div class="text-center containerft" id="ContenedorFoto"
+                             style="position: relative; margin-bottom: 18px; height: 284px">
+                            <span class="classSpanFoto" style="font-size: 23px; font-weight: bold; color: #1089D3">Foto <i
+                                    class="fa fa-camera" style="color: #1089D3"></i></span>
+                            <div class="containerftt">
+                                <canvas id="Canvas" class="classCanvas" name="namFoto"></canvas>
+                                <div class="btn-container" id="idBtnContainer" style="margin-top: 10px;">
+                                    <div class="form-group">
+                                        <div style="display: none">
+                                            {{ form.image }}
+                                        </div>
 
                                         <!-- Botón para Subir Foto -->
-                                        <div class="btnsubur">
-                                            <button type="button"
-                                                    onclick="document.getElementById('{{ form.image.id_for_label }}').click()"
-                                                    class="btn btn-primary-black"
-                                                    style="background-color: #11a4d2; color: white;">
-                                                Subir Imagen <i class="fa fa-user fa-lg"></i>
-                                            </button>
+                                        <div class="btn-subir-camara"
+                                             style="display: flex; align-items: center; justify-content: space-between; margin-top: -50px">
+
+                                            <!-- Botón para Subir Foto -->
+                                            <div class="btnsubur">
+                                                <button type="button"
+                                                        onclick="document.getElementById('{{ form.image.id_for_label }}').click()"
+                                                        class="btn btn-primary-black"
+                                                        style="background-color: #11a4d2; color: white;">
+                                                    Subir Imagen <i class="fa fa-user fa-lg"></i>
+                                                </button>
+                                            </div>
+
+                                            <!-- Botón para Activar Cámara -->
+                                            <div class="btnsubur">
+                                                <button type="button" id="btnCamera" class="btn btn-primary-black"
+                                                        style="background-color: #11a4d2; color: white;">
+                                                    Usar Cámara <i class="fa fa-camera fa-lg"></i>
+                                                </button>
+                                            </div>
                                         </div>
 
-                                        <!-- Botón para Activar Cámara -->
-                                        <div class="btnsubur">
-                                            <button type="button" id="btnCamera" class="btn btn-primary-black"
-                                                    style="background-color: #11a4d2; color: white;">
-                                                Usar Cámara <i class="fa fa-camera fa-lg"></i>
-                                            </button>
-                                        </div>
+                                        <!-- Botón para Tomar Foto -->
+                                        <button type="button" id="btnTakePhoto" class="btn btn-danger"
+                                                style="display: none; margin-right: 10px; position: absolute; top: 50%; right: 0; transform: translateY(-50%);">
+                                            Tomar Foto
+                                        </button>
                                     </div>
-
-                                    <!-- Botón para Tomar Foto -->
-                                    <button type="button" id="btnTakePhoto" class="btn btn-danger"
-                                            style="display: none; margin-right: 10px; position: absolute; top: 50%; right: 0; transform: translateY(-50%);">
-                                        Tomar Foto
-                                    </button>
                                 </div>
                             </div>
+
+                            <!-- Botón de X para eliminar imagen -->
+                            <button type="button" id="btnClearCanvas"
+                                    style="display: none; position: absolute; top: 10px; margin-left: 88%; background-color: red; color: white; border: none; font-size: 18px; cursor: pointer; padding: 5px; border-radius: 5px;">
+                                X
+                            </button>
                         </div>
 
-                        <!-- Botón de X para eliminar imagen -->
-                        <button type="button" id="btnClearCanvas"
-                                style="display: none; position: absolute; top: 10px; margin-left: 88%; background-color: red; color: white; border: none; font-size: 18px; cursor: pointer; padding: 5px; border-radius: 5px;">
-                            X
-                        </button>
+                        <div class="form-group">
+                            {{ form.dni.label_tag }}
+                            {{ form.dni }}
+                            {{ form.dni.errors }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.first_name.label_tag }}
+                            {{ form.first_name }}
+                            {{ form.first_name.errors }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.last_name.label_tag }}
+                            {{ form.last_name }}
+                            {{ form.last_name.errors }}
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        {{ form.dni.label_tag }}
-                        {{ form.dni }}
-                        {{ form.dni.errors }}
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ form.birth_day.label_tag }}
+                            {{ form.birth_day }}
+                            {{ form.birth_day.errors }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.gender.label_tag }}
+                            {{ form.gender }}
+                            {{ form.gender.errors }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.cell.label_tag }}
+                            {{ form.cell }}
+                            {{ form.cell.errors }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.email.label_tag }}
+                            {{ form.email }}
+                            {{ form.email.errors }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.username.label_tag }}
+                            {{ form.username }}
+                            {{ form.username.errors }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.password1.label_tag }}
+                            {{ form.password1 }}
+                            {{ form.password1.errors }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.password2.label_tag }}
+                            {{ form.password2 }}
+                            {{ form.password2.errors }}
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        {{ form.first_name.label_tag }}
-                        {{ form.first_name }}
-                        {{ form.first_name.errors }}
+                    <!-- Botón de Registrar -->
+                    <div class="form-group mt-4 mb-0">
+                        <button type="submit" class="btn btn-primary-black btn-block login-button">Entrar</button>
                     </div>
-
-                    <div class="form-group">
-                        {{ form.last_name.label_tag }}
-                        {{ form.last_name }}
-                        {{ form.last_name.errors }}
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        {{ form.birth_day.label_tag }}
-                        {{ form.birth_day }}
-                        {{ form.birth_day.errors }}
-                    </div>
-
-                    <div class="form-group">
-                        {{ form.gender.label_tag }}
-                        {{ form.gender }}
-                        {{ form.gender.errors }}
-                    </div>
-
-                    <div class="form-group">
-                        {{ form.cell.label_tag }}
-                        {{ form.cell }}
-                        {{ form.cell.errors }}
-                    </div>
-
-                    <div class="form-group">
-                        {{ form.email.label_tag }}
-                        {{ form.email }}
-                        {{ form.email.errors }}
-                    </div>
-
-                    <div class="form-group">
-                        {{ form.username.label_tag }}
-                        {{ form.username }}
-                        {{ form.username.errors }}
-                    </div>
-
-                    <div class="form-group">
-                        {{ form.password1.label_tag }}
-                        {{ form.password1 }}
-                        {{ form.password1.errors }}
-                    </div>
-
-                    <div class="form-group">
-                        {{ form.password2.label_tag }}
-                        {{ form.password2 }}
-                        {{ form.password2.errors }}
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-lg"
-                        style="background-color: #11A4D2;color: white ;margin-top: -50px; margin-left: 15px;">Registrar
-                </button>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
 
-    <script>
-        const canvas = document.getElementById('Canvas');
-        const ctx = canvas.getContext('2d');
-        const btnCamera = document.getElementById('btnCamera');
-        const btnTakePhoto = document.getElementById('btnTakePhoto');
-        const btnClearCanvas = document.getElementById('btnClearCanvas');
+        <script>
+            const canvas = document.getElementById('Canvas');
+            const ctx = canvas.getContext('2d');
+            const btnCamera = document.getElementById('btnCamera');
+            const btnTakePhoto = document.getElementById('btnTakePhoto');
+            const btnClearCanvas = document.getElementById('btnClearCanvas');
+            let videoStream = null;
+            let videoElement = null;
+            let isDefaultImage = true; // Bandera para saber si es la imagen predeterminada
 
-        let videoStream = null;
-        let videoElement = null;
-
-        // Mostrar imagen predeterminada
-        window.onload = function () {
-            const defaultImageUrl = "{{ default_image_url }}";
-            const image = new Image();
-            image.src = defaultImageUrl;
-            image.onload = function () {
-                drawImageToCanvas(image);
-            }
-        };
-
-        // Subir imagen y mostrarla en el canvas
-        document.getElementById('{{ form.image.id_for_label }}').addEventListener('change', function (event) {
-            const file = event.target.files[0];
-            if (!file) return; // Asegurarse de que hay un archivo
-
-            const reader = new FileReader();
-            reader.onload = function () {
+            // Mostrar imagen predeterminada
+            window.onload = function () {
+                const defaultImageUrl = "{{ default_image_url }}";
                 const image = new Image();
-                image.src = reader.result;
+                image.src = defaultImageUrl;
                 image.onload = function () {
                     drawImageToCanvas(image);
+                    isDefaultImage = true;  // Se establece como la imagen predeterminada
+                    btnClearCanvas.style.display = 'none'; // No mostrar la X si es la imagen predeterminada
                 }
             };
-            reader.readAsDataURL(file);
-        });
 
-        // Función para dibujar imagen en el canvas
-        function drawImageToCanvas(image) {
-            canvas.width = 180;
-            canvas.height = 180;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            const scale = Math.min(canvas.width / image.width, canvas.height / image.height);
-            const x = (canvas.width / 2) - (image.width / 2) * scale;
-            const y = (canvas.height / 2) - (image.height / 2) * scale;
-            ctx.drawImage(image, x, y, image.width * scale, image.height * scale);
-            btnClearCanvas.style.display = 'block';
-        }
+            // Subir imagen y mostrarla en el canvas
+            document.getElementById('{{ form.image.id_for_label }}').addEventListener('change', function (event) {
+                const file = event.target.files[0];
+                if (!file) return; // Asegurarse de que hay un archivo
 
-        // Activar cámara
-        btnCamera.addEventListener('click', async () => {
-            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-                videoStream = await navigator.mediaDevices.getUserMedia({video: true});
-                videoElement = document.createElement('video');
-                videoElement.srcObject = videoStream;
-                videoElement.play();
-                videoElement.onloadedmetadata = function () {
-                    canvas.width = 180;
-                    canvas.height = 180;
-                    updateCanvas();
-                    btnTakePhoto.style.display = 'block';
+                const reader = new FileReader();
+                reader.onload = function () {
+                    const image = new Image();
+                    image.src = reader.result;
+                    image.onload = function () {
+                        drawImageToCanvas(image);
+                        isDefaultImage = false;  // Se subió una nueva imagen, no es la predeterminada
+                        btnClearCanvas.style.display = 'block';  // Mostrar la X cuando se sube una imagen nueva
+                    }
                 };
-            }
-        });
+                reader.readAsDataURL(file);
+            });
 
-        function updateCanvas() {
-            if (videoElement && videoElement.srcObject) {
+            // Función para dibujar imagen en el canvas
+            function drawImageToCanvas(image) {
+                canvas.width = 180;
+                canvas.height = 180;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const scale = Math.min(canvas.width / image.width, canvas.height / image.height);
+                const x = (canvas.width / 2) - (image.width / 2) * scale;
+                const y = (canvas.height / 2) - (image.height / 2) * scale;
+                ctx.drawImage(image, x, y, image.width * scale, image.height * scale);
+            }
+
+            // Activar cámara
+            btnCamera.addEventListener('click', async () => {
+                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                    videoStream = await navigator.mediaDevices.getUserMedia({video: true});
+                    videoElement = document.createElement('video');
+                    videoElement.srcObject = videoStream;
+                    videoElement.play();
+                    videoElement.onloadedmetadata = function () {
+                        canvas.width = 180;
+                        canvas.height = 180;
+                        updateCanvas();
+                        btnTakePhoto.style.display = 'block';
+                    };
+                }
+            });
+
+            function updateCanvas() {
+                if (videoElement && videoElement.srcObject) {
+                    ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+                    requestAnimationFrame(updateCanvas);
+                }
+            }
+
+            // Tomar foto y mostrarla en el canvas
+            btnTakePhoto.addEventListener('click', () => {
                 ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-                requestAnimationFrame(updateCanvas);
-            }
-        }
+                btnTakePhoto.style.display = 'none';
+                btnClearCanvas.style.display = 'block';  // Mostrar la X después de tomar una foto
+                isDefaultImage = false;  // Ya no es la imagen predeterminada
+                if (videoStream) {
+                    videoStream.getTracks().forEach(track => track.stop());
+                    videoStream = null;
+                    videoElement.srcObject = null;
+                }
+            });
 
-        // Tomar foto y mostrarla en el canvas
-        btnTakePhoto.addEventListener('click', () => {
-            ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-            btnTakePhoto.style.display = 'none';
-            btnClearCanvas.style.display = 'block';
-            if (videoStream) {
-                videoStream.getTracks().forEach(track => track.stop());
-                videoStream = null;
-                videoElement.srcObject = null;
-            }
-        });
+            // Limpiar el canvas
+            btnClearCanvas.addEventListener('click', () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                btnClearCanvas.style.display = 'none'; // Ocultar la X al limpiar el canvas
 
-        // Limpiar el canvas
-        btnClearCanvas.addEventListener('click', () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            btnClearCanvas.style.display = 'none';
-            // Restablecer el input para que permita volver a subir la misma imagen
-            document.getElementById('{{ form.image.id_for_label }}').value = '';
-        });
-    </script>
+                // Restaurar la imagen predeterminada
+                const defaultImageUrl = "{{ default_image_url }}";
+                const image = new Image();
+                image.src = defaultImageUrl;
+                image.onload = function () {
+                    drawImageToCanvas(image);
+                    isDefaultImage = true;  // Volver a la imagen predeterminada
+                };
+
+                // Restablecer el input para que permita volver a subir la misma imagen
+                document.getElementById('{{ form.image.id_for_label }}').value = '';
+            });
+        </script>
 
 {% endblock content %}

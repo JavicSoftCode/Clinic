@@ -23,7 +23,7 @@ class CustomUserForm(UserCreationForm):
   class Meta:
     model = CustomUser  # El modelo asociado al formulario
     fields = [
-      'dni', 'first_name', 'last_name', 'address', 'gender',
+      'dni', 'first_name', 'last_name', 'gender',
       'birth_day', 'cell', 'email', 'image', 'username', 'password1', 'password2'
     ]  # Campos del formulario
 
@@ -62,11 +62,11 @@ class CustomUserForm(UserCreationForm):
     Validators.validate_birth_date(birth_day)  # Valida la fecha de nacimiento
     return birth_day
 
-  def clean_address(self):
-    """Validación personalizada para el campo dirección."""
-    address = self.cleaned_data.get('address')
-    Validators.validate_address(address)  # Valida la dirección
-    return address
+  # def clean_address(self):
+  #   """Validación personalizada para el campo dirección."""
+  #   address = self.cleaned_data.get('address')
+  #   Validators.validate_address(address)  # Valida la dirección
+  #   return address
 
   def clean_email(self):
     """Validación personalizada para el campo de correo electrónico."""

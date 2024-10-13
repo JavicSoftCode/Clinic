@@ -2,9 +2,10 @@ from crum import get_current_request
 from django.contrib.auth.models import Group, Permission, AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.db import models
 from django.forms.models import model_to_dict
-from django.utils.translation import gettext_lazy as _
-from BackEnd.Apps.Auth.Utils.utils import Validators
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
+
+from BackEnd.Apps.Auth.Utils.utils import Validators
 
 
 class Menu(models.Model):
@@ -70,7 +71,8 @@ class GroupModulePermission(models.Model):
                             related_name='group_module_permissions')
   module = models.ForeignKey(Module, on_delete=models.PROTECT, verbose_name='Modulo',
                              related_name='group_module_permissions')
-  permission = models.ForeignKey(Permission, on_delete=models.CASCADE, verbose_name='Permiso', related_name='group_module_permissions')
+  permission = models.ForeignKey(Permission, on_delete=models.CASCADE, verbose_name='Permiso',
+                                 related_name='group_module_permissions')
 
   class Meta:
     unique_together = ('group', 'module', 'permission')
@@ -125,11 +127,16 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-  gender = models.CharField(verbose_name='Sexo', max_length=1, choices=(('M', 'Masculino'), ('F', 'Femenino')), default='M')
+  gender = models.CharField(verbose_name='Sexo', max_length=1, choices=(('M', 'Masculino'), ('F', 'Femenino')),
+                            default='M')
   dni = models.CharField(_('DNI'), max_length=10, unique=True, validators=[Validators.validate_dni])
-  cell = models.CharField(_('Celular'), max_length=15, unique=True, validators=[Validators.validate_and_format_cell_number])
-  address = models.CharField(_('Dirección'), max_length=255, validators=[Validators.validate_address])
-  image = models.ImageField(_('Imagen'), upload_to='users/images/', blank=True, null=True)  # pip install Pillow
+  cell = models.CharField(_('Celular'), max_length=15, unique=True,
+                          validators=[Validators.validate_and_format_cell_number])
+  address = models.CharField(_('Dirección'), blank=True)
+  # address = models.CharField(_('Dirección'), max_length=255, validators=[Validators.validate_address])
+  # image = models.ImageField(_('Imagen'), upload_to='users/images/', blank=True, null=True)  # pip install Pillow
+  image = models.ImageField(_('Imagen'), upload_to='users/images/', default='public/clinic/avatar.jpg', blank=True,
+                            null=True)
   birth_day = models.DateField(_('Fecha Nacimiento'), validators=[Validators.validate_birth_date])
   first_name = models.CharField(_('Nombre'), max_length=30, validators=[Validators.validate_full_name])
   last_name = models.CharField(_('Apellido'), max_length=30, validators=[Validators.validate_full_name])
