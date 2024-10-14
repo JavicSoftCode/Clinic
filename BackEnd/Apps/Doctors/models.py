@@ -30,7 +30,7 @@ class Clinic(models.Model):
     return f"RUC {self.ruc} - Clinica {self.name}"
 
   def __str__(self):
-    return f"Nombre de la Clínica {self.name}"
+    return f"{self.name}"
 
 
 class Profession(models.Model):
@@ -45,19 +45,19 @@ class Profession(models.Model):
     return f"Profesión del Doctor {self.description}"
 
   def __str__(self):
-    return f"Profesión del Doctor {self.description}"
+    return f"{self.description}"
 
 
 class Doctor(models.Model):
-  SEX_CHOICES = (("M", "MASCULINO"), ("F", "FEMENINO"))
-  profession = models.ManyToManyField(Profession)
-  clinic = models.ForeignKey(Clinic, on_delete=models.CASCADE, related_name="clinicas")
+  SEX_CHOICES = (("M", 'Masculino'), ("F", 'Femenino'))
+  profession = models.ManyToManyField(Profession, verbose_name='Profesión')
+  clinic = models.ForeignKey(Clinic, on_delete=models.CASCADE, related_name="clinicas", verbose_name='Clínica')
   sex = models.CharField(_('Elegir Sexo'), default="M", max_length=1, choices=SEX_CHOICES)
-  dni = models.CharField(_('Ingresar Cédula'), unique=True, max_length=10, validators=[Validators.validate_dni])
-  first_name = models.CharField(_('Ingresar Nombres'), max_length=50, validators=[Validators.validate_full_name])
-  last_name = models.CharField(_('Ingresar Apellidos'), max_length=50, validators=[Validators.validate_full_name])
-  address = models.CharField(_('Ingresar Ubicación'), max_length=100, validators=[Validators.validate_address])
-  birth_date = models.DateField(_('Ingresar Fecha Nacimiento'), validators=[Validators.validate_birth_date])
+  dni = models.CharField(_('Cédula'), unique=True, max_length=10, validators=[Validators.validate_dni])
+  first_name = models.CharField(_('Nombres'), max_length=50, validators=[Validators.validate_full_name])
+  last_name = models.CharField(_('Apellidos'), max_length=50, validators=[Validators.validate_full_name])
+  address = models.CharField(_('Ubicación'), max_length=100, validators=[Validators.validate_address])
+  birth_date = models.DateField(verbose_name='Fecha Nacimiento', validators=[Validators.validate_birth_date])
   is_active = models.BooleanField(_('Activo o Inactivo ?'), default=True)
 
   class Meta:
@@ -106,4 +106,4 @@ class License(models.Model):
     return f'Licencia Médica {self.license_number} del Doctor {self.doctor.first_name} {self.doctor.last_name}'
 
   def __str__(self):
-    return f'Licencia Médica {self.license_number} - Doctor {self.doctor.first_name} {self.doctor.last_name}'
+    return f'{self.license_number}'

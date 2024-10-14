@@ -3,11 +3,12 @@ from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import redirect
+from django.templatetags.static import static
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
 from django.views.generic import CreateView
-from django.templatetags.static import static
+
 from BackEnd.Apps.Auth.Forms.auth import CustomUserLoginForm, CustomUserForm
 
 
@@ -20,7 +21,7 @@ class SignUpView(CreateView):
     context = super().get_context_data(**kwargs)
     context['global'] = 'Registrarse'
     context['saludos'] = 'Bienvenido a Nuestra Clinica JSC'
-    context['default_image_url'] = static('public/clinic/avatar.jpg')  # Ruta de la imagen predeterminada
+    context['default_image_url'] = static('public/clinic/avatar.jpg')
     return context
 
   def form_valid(self, form):

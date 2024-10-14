@@ -123,15 +123,29 @@ TIME_ZONE = 'America/Guayaquil'
 USE_I18N = True
 USE_TZ = True
 
-# Configuración de archivos estáticos
-STATIC_URL = os.getenv('STATIC_URL', '')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, os.getenv('STATICFILES_DIRS', ''))]
 
-# Configuración de archivos multimedia
-MEDIA_URL = os.getenv('MEDIA_URL', '')
-MEDIA_ROOT = os.path.join(BASE_DIR, os.getenv('MEDIA_ROOT', ''))
+# URL para acceder a los archivos estaticos ( CSS, JS )
+STATIC_URL = '/static/'
 
-# Modelo de usuario personalizado
+# Ubicacion donde estara la carpeta de los archivos estaticos
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'FrontEnd/static')]
+
+# URL para acceder y servir archivos
+MEDIA_URL = '/public/'
+
+# Ubicacion de la carpeta donde estaran los archivos subidos por el usuario
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# # Configuración de archivos estáticos
+# STATIC_URL = os.getenv('STATIC_URL', '')
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, os.getenv('STATICFILES_DIRS', ''))]
+#
+# # Configuración de archivos multimedia
+# MEDIA_URL = os.getenv('MEDIA_URL', '')
+# MEDIA_ROOT = os.path.join(BASE_DIR, os.getenv('MEDIA_ROOT', ''))
+#
+
+# # Modelo de usuario personalizado
 AUTH_USER_MODEL = os.getenv('AUTH_USER_MODEL', '')
 
 # Configuración de URLs de autenticación

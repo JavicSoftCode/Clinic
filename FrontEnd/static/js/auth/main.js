@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function () {
         img.src = 'public/clinic/img-dashboard-clinic.jpg'; // Ruta de la imagen de fondo
     }
 
-
     const canvass = document.getElementById('CanvasIMG');
     const contextt = canvass.getContext('2d');
     const imagenBase644 = localStorage.getItem('imagenDeFondo');

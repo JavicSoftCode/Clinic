@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
     --color-barra-lateral: rgb(255, 255, 255);
 
@@ -47,7 +46,6 @@
     --color-scroll-hover: rgb(85, 85, 85);
 }
 
-
 * {
     margin: 0;
     padding: 0;
@@ -77,7 +75,6 @@ body {
     top: 15px;
     z-index: 100;
 }
-
 
 /*----------------Barra Lateral*/
 .barra-lateral {
@@ -132,7 +129,6 @@ body {
     margin-left: 5px;
     font-size: 25px;
 }
-
 
 /*------------> Botón*/
 .barra-lateral .boton {
@@ -232,7 +228,6 @@ body {
 }
 
 .barra-lateral .modo-oscuro i {
-
     width: 50px;
     font-size: 20px;
 }
@@ -313,7 +308,6 @@ body {
     font-size: 20px;
 }
 
-
 /*-------------main*/
 
 #inbox {
@@ -330,7 +324,6 @@ main {
 main.min-main {
     margin-left: 80px;
 }
-
 
 /*------------------> Responsive*/
 @media (max-height: 660px) {
@@ -368,11 +361,7 @@ main.min-main {
     main.min-main {
         margin-left: 0;
     }
-
 }
-
-
-/*Estilos propios*/
 
 /*Estilos para toda la web*/
 * {
@@ -462,7 +451,6 @@ html::-webkit-scrollbar {
         padding: 6px; /* Reducir el padding de las celdas */
         font-size: 14px; /* Reducir el tamaño de la fuente */
     }
-
 }
 
 .li {
@@ -539,44 +527,6 @@ html::-webkit-scrollbar {
     font-size: 18px;
 }
 
-/*.classContenedorFoto {*/
-/*    float: right;*/
-/*    margin: 30px 0 18px 30px;*/
-/*    width: 250px;*/
-/*    height: 320px;*/
-/*    text-align: center;*/
-/*    border-radius: 10px;*/
-/*    border-left: 2px solid #e5e5e5;*/
-/*    border-bottom: 2px solid #e5e5e5;*/
-/*    border-right: 2px solid #e5e5e5;*/
-/*}*/
-
-/*.classContenedorFoto span {*/
-/*    font-size: 25px;*/
-/*    font-weight: bold;*/
-/*}*/
-
-/*!* Estilo para centrar el canvas *!*/
-/*.classContenedorFoto .containerft {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    height: 85%;*/
-/*    max-width: 100%; !* Añade esta línea *!*/
-/*}*/
-
-/*.classContenedorFoto canvas {*/
-/*    max-width: 100%; !* Añade esta línea *!*/
-/*    height: auto; !* Añade esta línea para mantener la proporción *!*/
-/*    border: 1px solid #ddd;*/
-/*}*/
-
-/*.classContenedorFoto .containerft .classCanvas {*/
-/*    border-radius: 10px;*/
-/*    height: 230px;*/
-/*    width: 200px;*/
-/*}*/
-
 .card-body p {
     text-align: justify;
 }
@@ -633,7 +583,6 @@ html::-webkit-scrollbar {
         height: 170px;
         max-width: 140px;
     }
-
 }
 
 .containerft {
@@ -674,10 +623,6 @@ html::-webkit-scrollbar {
     margin-bottom: 0;
 }
 
-/*.signin{*/
-/*    margin-left: 28%;*/
-/*}*/
-
 .content-overlay h1, .content-overlay p {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
@@ -698,7 +643,6 @@ html::-webkit-scrollbar {
 
 .span-close-session {
     color: #878890;
-    margin-left: -10px;
 }
 
 .span-close-session:hover {
@@ -773,7 +717,7 @@ html::-webkit-scrollbar {
     padding: 15px 20px;
     border-radius: 20px;
     margin-top: 15px;
-    box-shadow: #cff0ff 0px 10px 10px -5px;
+    box-shadow: #cff0ff 0 10px 10px -5px;
     border-inline: 2px solid transparent;
 }
 
@@ -811,19 +755,19 @@ html::-webkit-scrollbar {
     padding-block: 15px;
     margin: 20px auto;
     border-radius: 20px;
-    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0 20px 10px -15px;
     border: none;
     transition: all 0.2s ease-in-out;
 }
 
 .form .login-button:hover {
     transform: scale(1.03);
-    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0 23px 10px -20px;
 }
 
 .form .login-button:active {
     transform: scale(0.95);
-    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0 15px 10px -10px;
 }
 
 .social-account-container {
@@ -854,7 +798,7 @@ html::-webkit-scrollbar {
     aspect-ratio: 1;
     display: grid;
     place-content: center;
-    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0 12px 10px -8px;
     transition: all 0.2s ease-in-out;
 }
 

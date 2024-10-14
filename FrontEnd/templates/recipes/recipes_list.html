@@ -1,35 +1,136 @@
-{% extends 'auth/dashboard.html' %}
+{#{% extends 'auth/dashboard.html' %}#}
+{##}
+{#{% block content %}#}
+{#    <h1>Lista de Medicamentos</h1>#}
+{#    <a href="{% url 'Recipes:recipes_Create' %}">Nuevo Medicamento</a>#}
+{#    <table>#}
+{#        <thead>#}
+{#            <tr>#}
+{#                <th>Código</th>#}
+{#                <th>Descripción</th>#}
+{#                <th>Precio</th>#}
+{#                <th>Estado</th>#}
+{#                <th>Acciones</th>#}
+{#            </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#            {% for medicamento in medicamentos %}#}
+{#                <tr>#}
+{#                    <td>{{ medicamento.codigo }}</td>#}
+{#                    <td>{{ medicamento.descripcion }}</td>#}
+{#                    <td>{{ medicamento.precio }}</td>#}
+{#                    <td>{{ medicamento.estado }}</td>#}
+{#                    <td>#}
+{#                        <a href="{% url 'Recipes:recipes_Update' medicamento.pk %}">Editar</a>#}
+{#                        <a href="{% url 'Recipes:recipes_Delete' medicamento.pk %}">Eliminar</a>#}
+{#                    </td>#}
+{#                </tr>#}
+{#            {% empty %}#}
+{#                <tr>#}
+{#                    <td colspan="5">No hay medicamentos disponibles.</td>#}
+{#                </tr>#}
+{#            {% endfor %}#}
+{#        </tbody>#}
+{#    </table>#}
+{#{% endblock %}#}
 
+{% extends 'auth/dashboard.html' %}
 {% block content %}
-    <h1>Lista de Medicamentos</h1>
-    <a href="{% url 'Recipes:recipes_Create' %}">Nuevo Medicamento</a>
-    <table>
-        <thead>
-            <tr>
-                <th>Código</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for medicamento in medicamentos %}
-                <tr>
-                    <td>{{ medicamento.codigo }}</td>
-                    <td>{{ medicamento.descripcion }}</td>
-                    <td>{{ medicamento.precio }}</td>
-                    <td>{{ medicamento.estado }}</td>
-                    <td>
-                        <a href="{% url 'Recipes:recipes_Update' medicamento.pk %}">Editar</a>
-                        <a href="{% url 'Recipes:recipes_Delete' medicamento.pk %}">Eliminar</a>
-                    </td>
-                </tr>
-            {% empty %}
-                <tr>
-                    <td colspan="5">No hay medicamentos disponibles.</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <a style="width: 15%; margin-left: 82.3%; margin-top: -4.3%" class="btn btn-primary mb-sm-2"
+       href="{% url 'Recipes:recipes_Create' %}">Agg Medicamento <i class="fa-solid fa-syringe fa-lg"></i></a>
+    <div class="animated fadeIn">
+        <div class="card-body">
+            <div id="bootstrap-data-table_wrapper"
+                 class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="bootstrap-data-table"
+                               class="table table-striped table-bordered dataTable no-footer" role="grid"
+                               aria-describedby="bootstrap-data-table_info">
+                            <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table"
+                                    rowspan="1" colspan="1" aria-sort="ascending"
+                                    aria-label="Name: activate to sort column descending"
+                                    style="width: 10px;"><i class="fa-solid fa-hashtag fa-lg"></i>
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table"
+                                    rowspan="1" colspan="1"
+                                    aria-label="Salary: activate to sort column ascending"
+                                    style="width: 150px;">Código
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table"
+                                    rowspan="1" colspan="1"
+                                    aria-label="Salary: activate to sort column ascending"
+                                    style="width: 200px;">Descripción
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table"
+                                    rowspan="1" colspan="1"
+                                    aria-label="Position: activate to sort column ascending"
+                                    style="width: 100px;">Precio
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table"
+                                    rowspan="1" colspan="1"
+                                    aria-label="Office: activate to sort column ascending"
+                                    style="width: 100px;">Stock
+                                </th>
+                                 <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table"
+                                    rowspan="1" colspan="1"
+                                    aria-label="Salary: activate to sort column ascending"
+                                    style="width: 250px;">Usuario/Doctor
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table"
+                                    rowspan="1" colspan="1"
+                                    aria-label="Salary: activate to sort column ascending"
+                                    style="width: 10px;">Estado
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table"
+                                    rowspan="1" colspan="1"
+                                    aria-label="Salary: activate to sort column ascending"
+                                    style="width: 175px;">Opciones
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for medicamento in medicamentos %}
+                                <tr>
+                                    <th scope="row">{{ forloop.counter }}</th>
+                                    <td>{{ medicamento.code }}</td>
+                                    <td>{{ medicamento.description }}</td>
+                                    <td>$ {{ medicamento.price }}</td>
+                                    <td>{{ medicamento.stock }}</td>
+                                    <td>{{ medicamento.user }}</td>
+                                    <td>
+                                        {% if medicamento.status %}
+                                            <i class="fa-solid fa-circle-check" style="color: #3cff3c;"></i>
+                                        {% else %}
+                                            <i class="fa-solid fa-circle-xmark" style="color: red;"></i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'Recipes:recipes_Update' medicamento.pk %}"
+                                           class="btn btn-primary" style="background-color: #eaea2e; border: none"
+                                           title="Editar">
+                                            <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                                        </a>
+                                        <a href="{% url 'Recipes:recipes_Delete' medicamento.pk%}" class="btn btn-primary" title="Eliminar"
+                                           style="background-color: red; border: none">
+                                            <i class="fa-solid fa-trash-can fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="11" class="text-center">No doctors available</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

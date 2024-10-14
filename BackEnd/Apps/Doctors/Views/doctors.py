@@ -1,3 +1,4 @@
+from django.templatetags.static import static
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView
 
@@ -10,12 +11,12 @@ class DoctorListView(ListView):
   template_name = "doctors/doctors_list.html"
   context_object_name = "doctores"
   extra_context = {
-    "title": "Medical",
-    "title1": "Consulta de Doctores"
+    "icon": static('public/clinic/icon/doctor_ico.ico'),
+    "global": "Administración de Doctores",
+    "saludos": "Consulta de Doctores",
   }
 
   def get_queryset(self):
-    # Puedes personalizar el queryset si es necesario
     return Doctor.objects.all()
 
 
@@ -24,12 +25,11 @@ class DoctorCreateView(CreateView):
   form_class = DoctorForm
   template_name = "doctors/doctors_forms.html"
   success_url = reverse_lazy('Doctors:doctors_list')
-
-  def get_context_data(self, **kwargs):
-    context = super().get_context_data(**kwargs)
-    context['title'] = 'Doctores'
-    context['title1'] = 'Añadir Doctores'
-    return context
+  extra_context = {
+    "icon": static('public/clinic/icon/doctor_ico.ico'),
+    "global": "Registrando Datos del Doctor",
+    "saludos": "Registrar Doctor",
+  }
 
   def form_invalid(self, form):
     context = self.get_context_data()
@@ -43,12 +43,11 @@ class DoctorUpdateView(UpdateView):
   form_class = DoctorForm
   template_name = "doctors/doctors_forms.html"
   success_url = reverse_lazy('Doctors:doctors_list')
-
-  def get_context_data(self, **kwargs):
-    context = super().get_context_data(**kwargs)
-    context['title'] = 'Doctores'
-    context['title1'] = 'Actualizar Doctor'
-    return context
+  extra_context = {
+    "icon": static('public/clinic/icon/doctor_ico.ico'),
+    "global": "Actualizando Datos del Doctores",
+    "saludos": "Actualizar Doctor"
+  }
 
   def form_invalid(self, form):
     context = self.get_context_data()

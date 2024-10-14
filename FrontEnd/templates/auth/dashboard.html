@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="icon" type="image/x-icon" href="{{ icon }}">
     <title>{% block title %}{{ global }}{% endblock %}</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -11,7 +12,6 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    {% load static %}
     <link href="{% static 'css/auth/main.css' %}" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
@@ -22,7 +22,8 @@
 <div class="barra-lateral">
     <div>
         <div class="nombre-pagina">
-            <i id="cloud" class="fa-solid fa-hospital" style="font-size: 35px; cursor: pointer; margin-left: 3px; color: #1089D3"></i>
+            <i id="cloud" class="fa-solid fa-hospital"
+               style="font-size: 35px; cursor: pointer; margin-left: 3px; color: #1089D3"></i>
             <span class="underline"><a href="/" class="home" style="color: #1089d3">Clinica JSC</a></span>
         </div>
         <button class="boton">
@@ -36,31 +37,59 @@
             {% if user.is_authenticated %}
                 <li class="li">
                     <a href="#">
-                        <i class="fas fa-clipboard-list fa-lg"></i> <span class="span">Notas</span>
+                        <i class="fa-solid fa-bed-pulse fa-lg" style="color: #1089D3"></i>
+                        <span class="span" style="color: #1089D3"><strong>Cirugías</strong></span>
                     </a>
                 </li>
                 <li class="li">
                     <a href="#">
-                        <i class="fas fa-user-graduate fa-lg"></i>
-                        <span class="span">Estudiantes</span>
+                        <i class="fa-solid fa-stethoscope fa-lg" style="color: #1089D3"></i>
+                        <span class="span" style="color: #1089D3"><strong>Tratamientos Médicos</strong></span>
                     </a>
                 </li>
                 <li class="li">
                     <a href="#">
-                        <i class="fas fa-book fa-lg"></i>
-                        <span class="span">Asignaturas</span>
+                        <i class="fa-solid fa-truck-medical fa-lg" style="color: #1089D3"></i>
+                        <span class="span" style="color: #1089D3"><strong>Urgencias</strong></span>
                     </a>
                 </li>
                 <li class="li">
                     <a href="#">
-                        <i class="fas fa-chalkboard-teacher fa-lg"></i>
-                        <span class="span">Profesores</span>
+                        <i class="fa-solid fa-baby fa-lg" style="color: #1089D3"></i>
+                        <span class="span" style="color: #1089D3"><strong>Pediatría</strong></span>
                     </a>
                 </li>
                 <li class="li">
                     <a href="#">
-                        <i class="fas fa-calendar-check fa-lg"></i>
-                        <span class="span">Periodos</span>
+                        <i class="fa-solid fa-x-ray fa-lg" style="color: #1089D3"></i>
+                        <span class="span" style="color: #1089D3"><strong>Radiología</strong></span>
+                    </a>
+                </li>
+                <li class="li">
+                    <a href="#">
+                        <i class="fa-solid fa-microscope fa-lg" style="color: #1089D3"></i>
+
+                        <span class="span" style="color: #1089D3"><strong>Laboratorio Clínico</strong></span>
+                    </a>
+                </li>
+                <li class="li">
+                    <a href="#">
+                        <i class="fa-solid fa-heart-pulse fa-lg" style="color: #1089D3"></i>
+                        <span class="span" style="color: #1089D3"><strong>Cardiología</strong></span>
+                    </a>
+                </li>
+                <li class="li">
+                    <a href="#">
+                        <i class="fa-solid fa-venus fa-lg" style="color: #E75480"></i>
+                        <span class="span" style="color: #1089D3"><strong>Ginecología</strong></span>
+                    </a>
+                </li>
+                <li class="li">
+                    <a href="#">
+                        {#                        <i class="fas fa-calendar-check fa-lg" style="color: #1089D3"></i>#}
+                        <i class="fa-solid fa-dumbbell fa-lg" style="color: #1089D3"></i>
+
+                        <span class="span" style="color: #1089D3"><strong>Fisioterapia</strong></span>
                     </a>
                 </li>
                 {# Condición para mostrar el botón de Administrador #}
@@ -68,8 +97,8 @@
                     <li class="li">
                         <a href="{% url 'Core:adminClinic' %}">
                             {# Cambia 'Auth:admin_dashboard' por la URL correspondiente #}
-                            <i class="fas fa-user-shield fa-lg"></i>
-                            <span class="span">Administrador</span>
+                            <i class="fas fa-user-shield fa-lg" style="color: #1089D3"></i>
+                            <span class="span" style="color: #1089D3"><strong>Administrador</strong></span>
                         </a>
                     </li>
                 {% endif %}
@@ -77,9 +106,9 @@
                 <li class="li">
                     <form action="{% url 'Auth:signout' %}" method="post" style="display:inline;">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-close-session">
-                            <i class="fa fa-sign-out fa-lg span-close-session"></i>
-                            <span class="span span-close-session">Cerrar Sesión ㅤㅤㅤㅤㅤ</span>
+                        <button type="submit" class="btn btn-close-session" style="text-align: center">
+                            <i class="fa-solid fa-sign-out-alt fa-lg" style="color: #1089D3"></i>
+                            <span class="span span-close-session" style="color: #1089D3"><strong>Cerrar Sesión</strong> ㅤㅤㅤㅤㅤ</span>
                         </button>
                     </form>
                 </li>
@@ -99,11 +128,11 @@
                     <div class="subirEnDashboard">
                         <div class="linea"></div>
                         <div class="usuario">
-                            <img src="{% static 'public/clinic/JSC.jpeg' %}" alt="JSC">
+                            <img src="{{ user.image.url }}" alt="JSC">
                             <div class="info-usuario">
                                 <div class="nombre-email">
                                     <span class="nombre">  JSC   <i class="fas fa-envelope fa-lg"></i></span>
-                                    <span class="email">  JavicSoftCode@gmail.com</span>
+                                    <span class="email">  {{ user.email }}</span>
                                 </div>
                             </div>
                         </div>
@@ -153,11 +182,12 @@
                         <div class="subirEnDashboard">
                             <div class="linea"></div>
                             <div class="usuario">
-                                <img src="{% static 'public/clinic/JSC.jpeg' %}" alt="JSC">
+                                <img src="{% static 'public/clinic/avatar.jpg' %}" alt="JSC">
                                 <div class="info-usuario">
                                     <div class="nombre-email">
-                                        <span class="nombre" style="color:#1089D3;">  JSC   <i class="fas fa-envelope fa-lg"></i></span>
-                                        <span class="email">  JavicSoftCode@gmail.com</span>
+                                        <span class="nombre" style="color:#1089D3;">  JSC   <i
+                                                class="fas fa-envelope fa-lg"></i></span>
+                                        <span class="email">  Developer@gmail.com</span>
                                     </div>
                                 </div>
                             </div>
@@ -174,7 +204,8 @@
         <div class="col-md-12"> {#     Contenedor Del Contenido#}
             <div class="card">
                 <div class="card-header" style="border-radius: 40px">
-                    <h3 class=" font-weight-bold my-1 h3" style="color: #1089D3FF">{{ saludos|safe }}</h3>
+                    <h3 class=" font-weight-bold my-1 h3" style="color: #1089D3FF">{{ saludos|safe }}
+                        <span style="float: right; margin-top: -25px;"> {{ btn|safe }}</span></h3>
                 </div>
                 {% block content %}
 
@@ -198,8 +229,6 @@
 {% if user.is_authenticated %}
     <script src="{% static 'js/auth/main.js' %}"></script>
 {% endif %}
-    <script src="{% static 'js/auth/signup.js' %}"></script>
-
-{#<script src="{% static 'js/auth/home.js' %}"></script>#}
+<script src="{% static 'js/auth/signup.js' %}"></script>
 </body>
 </html>

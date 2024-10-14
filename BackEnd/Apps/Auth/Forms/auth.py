@@ -30,7 +30,7 @@ class CustomUserForm(UserCreationForm):
   def __init__(self, *args, **kwargs):
     super().__init__(*args, **kwargs)
     for field_name, field in self.fields.items():
-      field.widget.attrs.update({'class': 'form-control input forgot-password', 'placeholder': field.label})
+      field.widget.attrs.update({'class': 'form-control input forgot-password signup', 'placeholder': field.label})
       # field.widget.attrs.update({'style': 'margin-top:-5px'})
 
   def clean_dni(self):

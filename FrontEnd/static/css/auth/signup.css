@@ -1,0 +1,36 @@
+
+
+/*signup*/
+/*signup*/
+
+/*signup*/
+/*signup*/
+/* Estilos por defecto del input sin bordes */
+.signup {
+    border-radius: 20px;
+    border: none; /* Sin bordes por defecto */
+    outline: none; /* Quita el contorno por defecto al enfocar */
+    padding: 10px;
+     box-shadow: 0 10px 10px 0 rgba(216, 242, 255, 0.85);
+}
+
+/* Estilos cuando el input está enfocado (cuando el cursor está dentro) */
+.signup:focus {
+    border-left: 2.5px solid #12b1d1; /* Borde izquierdo de color */
+    border-right: 2.5px solid #12b1d1; /* Borde derecho de color */
+    border-top: none;
+    border-bottom: none;
+    box-shadow: none; /* Quita el sombreado que pueda ocultar los bordes */
+}
+
+/* Opcional: Agrega una transición suave para los bordes */
+.signup {
+    transition: border 0.1s ease;
+}
+
+label{
+    color: #1089D3;
+}
+input{
+    background-color: white;
+}
