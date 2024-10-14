@@ -76,7 +76,7 @@
                                     aria-label="Office: activate to sort column ascending"
                                     style="width: 100px;">Stock
                                 </th>
-                                 <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table"
+                                <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table"
                                     rowspan="1" colspan="1"
                                     aria-label="Salary: activate to sort column ascending"
                                     style="width: 250px;">Usuario/Doctor
@@ -103,10 +103,10 @@
                                     <td>{{ medicamento.stock }}</td>
                                     <td>{{ medicamento.user }}</td>
                                     <td>
-                                        {% if medicamento.status %}
-                                            <i class="fa-solid fa-circle-check" style="color: #3cff3c;"></i>
-                                        {% else %}
+                                        {% if medicamento.status == 'baja' %}
                                             <i class="fa-solid fa-circle-xmark" style="color: red;"></i>
+                                        {% else %}
+                                            <i class="fa-solid fa-circle-check" style="color: #3cff3c;"></i>
                                         {% endif %}
                                     </td>
                                     <td>
@@ -115,7 +115,8 @@
                                            title="Editar">
                                             <i class="fa-solid fa-pen-to-square fa-lg"></i>
                                         </a>
-                                        <a href="{% url 'Recipes:recipes_Delete' medicamento.pk%}" class="btn btn-primary" title="Eliminar"
+                                        <a href="{% url 'Recipes:recipes_Delete' medicamento.pk %}"
+                                           class="btn btn-primary" title="Eliminar"
                                            style="background-color: red; border: none">
                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                         </a>

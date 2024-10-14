@@ -33,7 +33,7 @@
                                 <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table"
                                     rowspan="1" colspan="1"
                                     aria-label="Position: activate to sort column ascending"
-                                    style="width: 100px;"> Cédula
+                                    style="width: 50px;"> Cédula
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table"
                                     rowspan="1" colspan="1"
@@ -58,7 +58,7 @@
                                 <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table"
                                     rowspan="1" colspan="1"
                                     aria-label="Salary: activate to sort column ascending"
-                                    style="width: 100px;">Ubicación
+                                    style="width: 50px;">Ubicación
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table"
                                     rowspan="1" colspan="1"
@@ -85,7 +85,7 @@
                                     <td>{{ doctor.dni }}</td>
                                     <td>{{ doctor.first_name }}</td>
                                     <td>{{ doctor.last_name }}</td>
-                                    <td>{{ doctor.birth_date }}</td>
+                                    <td>{{ doctor.birth_date | date:'d-M-Y' }}</td>
                                     <td>{{ doctor.sex }}</td>
                                     {#                                    <td>{{ doctor.get_sex_display }}</td>#}
                                     <td>{{ doctor.address }}</td>
@@ -102,7 +102,7 @@
                                            title="Editar">
                                             <i class="fa-solid fa-pen-to-square fa-lg"></i>
                                         </a>
-                                        <a href="#" class="btn btn-primary" title="Eliminar"
+                                        <a href="{% url 'Doctors:doctor_delete' doctor.pk %}" class="btn btn-primary" title="Eliminar"
                                            style="background-color: red; border: none">
                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                         </a>

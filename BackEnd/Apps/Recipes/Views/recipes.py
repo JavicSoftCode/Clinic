@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.templatetags.static import static
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
@@ -6,10 +7,11 @@ from BackEnd.Apps.Recipes.Forms.recipes import MedicamentoForm
 from BackEnd.Apps.Recipes.models import Medicamento
 
 
-class MedicamentoListView(ListView):
+class MedicamentoListView(LoginRequiredMixin, ListView):
   model = Medicamento
   template_name = 'recipes/recipes_list.html'
   context_object_name = 'medicamentos'
+  login_url = reverse_lazy('Recipes:Auth:signin')
   extra_context = {
     "icon": static('public/clinic/icon/medicamento_ico.ico'),
     "global": "Administración de Medicamentos",
@@ -17,11 +19,12 @@ class MedicamentoListView(ListView):
   }
 
 
-class MedicamentoCreateView(CreateView):
+class MedicamentoCreateView(LoginRequiredMixin, CreateView):
   model = Medicamento
   form_class = MedicamentoForm
   template_name = 'recipes/recipes_forms.html'
   success_url = reverse_lazy('Recipes:recipes_list')
+  login_url = reverse_lazy('Recipes:Auth:signin')
   extra_context = {
     "icon": static('public/clinic/icon/medicamento_ico.ico'),
     "global": "Registrando Medicamento",
@@ -33,11 +36,12 @@ class MedicamentoCreateView(CreateView):
     return super().form_valid(form)
 
 
-class MedicamentoUpdateView(UpdateView):
+class MedicamentoUpdateView(LoginRequiredMixin, UpdateView):
   model = Medicamento
   form_class = MedicamentoForm
   template_name = 'recipes/recipes_forms.html'
   success_url = reverse_lazy('Recipes:recipes_list')
+  login_url = reverse_lazy('Recipes:Auth:signin')
   extra_context = {
     "icon": static('public/clinic/icon/medicamento_ico.ico'),
     "global": "Actualizando Medicamento",
@@ -45,10 +49,11 @@ class MedicamentoUpdateView(UpdateView):
   }
 
 
-class MedicamentoDeleteView(DeleteView):
+class MedicamentoDeleteView(LoginRequiredMixin, DeleteView):
   model = Medicamento
   template_name = 'recipes/recipes_delete.html'
-  success_url = reverse_lazy('Recipes:recipes_list')
+  login_url = reverse_lazy('Recipes:Auth:signin')
+  login_url = reverse_lazy('Auth:signin')
   extra_context = {
     "icon": static('public/clinic/icon/medicamento_ico.ico'),
     "global": "Eliminación del Medicamento",

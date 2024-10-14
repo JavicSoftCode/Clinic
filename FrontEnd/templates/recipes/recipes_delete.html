@@ -1,11 +1,67 @@
+{#{% extends 'auth/dashboard.html' %}#}
+{##}
+{#{% block content %}#}
+{#    <h1>Eliminar Medicamento</h1>#}
+{#    <p>¿Estás seguro de que quieres eliminar "{{ object.descripcion }}"?</p>#}
+{#    <form method="post">#}
+{#        {% csrf_token %}#}
+{#        <button type="submit">Confirmar</button>#}
+{#    </form>#}
+{#    <a href="{% url 'Recipes:recipes_list' %}">Cancelar</a>#}
+{#{% endblock %}#}
 {% extends 'auth/dashboard.html' %}
 
 {% block content %}
-    <h1>Eliminar Medicamento</h1>
-    <p>¿Estás seguro de que quieres eliminar "{{ object.descripcion }}"?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Confirmar</button>
-    </form>
-    <a href="{% url 'Recipes:recipes_list' %}">Cancelar</a>
+    <div class="container" style="width: 600px; height: 580px; margin-left: 30%; text-align: center">
+        <h1 style="color: red; font-size: 30px"><strong>Eliminar Medicamento</strong></h1>
+        <br>
+        <p style="font-size: 20px; color: blue">¿ Estás seguro de que quieres eliminar
+            ?<br>"{{ object.description }}  <i class="fa-solid fa-barcode fa-lg"></i>{{ object.code }}" </p>
+        <br>
+        <form method="post" style="display: flex; gap: 20px;">
+            {% csrf_token %}
+            <div class="container-delete" style="margin-top: 15px; margin-left: 25%">
+                <button type="submit"
+                        style="background-color: #ff0000; color: white; border: none; padding: 10px 15px; border-radius: 5px; margin-right: 10px">
+                    Eliminar
+                </button>
+                <a href="{% url 'Recipes:recipes_list' %}" type="btn"
+                   style="background-color: #11a4d2; color: white; padding: 14px 15px; text-decoration: none; border-radius: 5px;">Cancelar</a>
+            </div>
+        </form>
+        <br>
+
+        <div class="text-center containerft" id="ContenedorFoto"
+             style="position: relative; margin-bottom: 18px; height: 284px;">
+    <span class="classSpanFoto" style="font-size: 23px; font-weight: bold; color: #1089D3; margin-top: -80px">
+        {{ user.username }} <i class="fa-solid fa-user fa-lg" style="color: #1089D3"></i>
+    </span>
+            <div class="containerftt">
+                <canvas id="Canvas" class="classCanvas" width="200" height="200"
+                        style="margin-left: 20%; margin-top: 0"></canvas>
+                <span class="classSpanFoto"
+                      style="font-size: 23px; font-weight: bold; color: #1089D3; margin-top: -50px">
+        Admin <i class="fa-solid fa-user-tie fa-lg" style="color: #1089D3;"></i>
+    </span>
+            </div>
+        </div>
+        <script>
+            window.onload = function () {
+                const canvas = document.getElementById('Canvas');
+                const ctx = canvas.getContext('2d');
+                const img = new Image();
+
+                // Cambia la URL de la imagen según tu contexto
+                img.src = '{{ user.image.url }}';
+
+                img.onload = function () {
+                    // Dibuja la imagen en el canvas
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                };
+            };
+
+        </script>
+
+
+    </div>
 {% endblock %}

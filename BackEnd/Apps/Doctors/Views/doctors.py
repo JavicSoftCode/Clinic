@@ -1,15 +1,17 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.templatetags.static import static
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from BackEnd.Apps.Doctors.Forms.doctors import DoctorForm
 from BackEnd.Apps.Doctors.models import Doctor
 
 
-class DoctorListView(ListView):
+class DoctorListView(LoginRequiredMixin, ListView):
   model = Doctor
   template_name = "doctors/doctors_list.html"
   context_object_name = "doctores"
+  login_url = reverse_lazy('Doctors:Auth:signin')
   extra_context = {
     "icon": static('public/clinic/icon/doctor_ico.ico'),
     "global": "Administración de Doctores",
@@ -20,11 +22,12 @@ class DoctorListView(ListView):
     return Doctor.objects.all()
 
 
-class DoctorCreateView(CreateView):
+class DoctorCreateView(LoginRequiredMixin, CreateView):
   model = Doctor
   form_class = DoctorForm
   template_name = "doctors/doctors_forms.html"
   success_url = reverse_lazy('Doctors:doctors_list')
+  login_url = reverse_lazy('Doctors:Auth:signin')
   extra_context = {
     "icon": static('public/clinic/icon/doctor_ico.ico'),
     "global": "Registrando Datos del Doctor",
@@ -38,11 +41,12 @@ class DoctorCreateView(CreateView):
     return self.render_to_response(context)
 
 
-class DoctorUpdateView(UpdateView):
+class DoctorUpdateView(LoginRequiredMixin, UpdateView):
   model = Doctor
   form_class = DoctorForm
   template_name = "doctors/doctors_forms.html"
   success_url = reverse_lazy('Doctors:doctors_list')
+  login_url = reverse_lazy('Doctors:Auth:signin')
   extra_context = {
     "icon": static('public/clinic/icon/doctor_ico.ico'),
     "global": "Actualizando Datos del Doctores",
@@ -54,3 +58,15 @@ class DoctorUpdateView(UpdateView):
     context['form'] = form
     context['error'] = 'Error al actualizar el Doctor.'
     return self.render_to_response(context)
+
+
+class DoctorDeleteView(LoginRequiredMixin, DeleteView):
+  model = Doctor
+  template_name = 'doctors/doctors_delete.html'
+  success_url = reverse_lazy('Doctors:doctors_list')
+  login_url = reverse_lazy('Doctors:Auth:signin')
+  extra_context = {
+    "icon": static('public/clinic/icon/doctor_ico.ico'),
+    "global": "Eliminación del Doctor",
+    "saludos": "Eliminar Doctor",
+  }

@@ -38,51 +38,6 @@ class SignUpView(CreateView):
     return super().form_invalid(form)
 
 
-# class SignUpView(CreateView):
-#   model = CustomUser
-#   form_class = CustomUserForm
-#   template_name = 'auth/signup.html'
-#   success_url = reverse_lazy('Auth:signin')
-#
-#   def get_context_data(self, **kwargs):
-#     context = super().get_context_data(**kwargs)
-#     context['global'] = 'Registrarse'
-#     context['saludos'] = 'Bienvenido a Nuestra Clinica JSC'
-#     context['default_image_url'] = static('public/clinic/avatar.jpg')  # Ruta de la imagen predeterminada
-#     return context
-#
-#   def form_valid(self, form):
-#     user = form.save()
-#     login(self.request, user)  # Inicia sesión automáticamente tras registrarse
-#     messages.success(self.request, '¡Te has registrado exitosamente!')
-#     return redirect(self.success_url)
-#
-#   def form_invalid(self, form):
-#     # Manejo de errores personalizados si el formulario no es válido
-#     messages.error(self.request, 'Por favor corrige los errores en el formulario.')
-#     return self.render_to_response(self.get_context_data(form=form))
-
-
-# Vista de registro
-# class SignUpView(CreateView):
-#     model = CustomUser  # Usamos CustomUser como modelo
-#     form_class = CustomUserForm  # Usamos CustomUserForm
-#     template_name = 'auth/signup.html'
-#     success_url = reverse_lazy('Auth:signin')
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['global'] = 'Registrarse'
-#         context['saludos'] = 'Bienvenido a Nuestra Clinica JSC'
-#         return context
-#
-#     def form_valid(self, form):
-#         user = form.save()
-#         login(self.request, user)  # Inicia sesión automáticamente tras registrarse
-#         messages.success(self.request, '¡Te has registrado exitosamente!')
-#         return redirect(self.success_url)
-
-
 # Vista de inicio de sesión
 class SignInView(LoginView):
   form_class = CustomUserLoginForm  # Utiliza el formulario de inicio de sesión personalizado
